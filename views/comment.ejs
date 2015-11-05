@@ -1,0 +1,70 @@
+<br>
+<div class="">
+    <h2>评论列表</h2>
+</div>
+
+<div class="line" style="height:10px; background:rgb(220, 220, 220)">
+</div>
+<br>
+
+
+<% post.comments.forEach(function (comment, index) { %>
+    <div class="comments">
+        <a href="#">回复</a>
+        <% if(user == comment.name || user == post.name) { %>
+        <a href="/removecomment/<%= post.name%>/<%= post.time.day%>/<%= post._id%>/<%= comment.time%>/<%= comment.name%>">删除</a>
+        <% } %>
+        <p style="color:rgb(100, 103, 102)"><img src="<%= photo%>" alt="" style="height:20px; float:left"/>&nbsp; #<%= index+1%>楼
+        <span class="info"> 回复于 <%= comment.time %></span>&nbsp;
+        <a href="/u/<%= comment.name %>"><%= comment.name %></a>&nbsp;
+        <abbr title="联系我"><img src="/images/emails_16.ico" alt="" /></abbr></p>
+
+        <p><strong><%- comment.content %></strong></p>
+    </div>
+<% }) %>
+<br>
+<div class="">
+    <h2>发表评论</h2>
+</div>
+
+<div class="line" style="height:10px; background:rgb(220, 220, 220)">
+</div>
+<br>
+<form class="form-horizontal" method="post">
+    <% if (user) { %>
+  <div class="form-group">
+     <div class="col-sm-6">
+          <strong>昵称:</strong><input type="text" class="form-control" id="name3" name="name" placeholder="<%= user%>" value="<%= user%>"readonly /><br/>
+      </div>
+    </div>
+  <div class="form-group">
+      <div class="col-sm-12">
+         <strong>评论内容:</strong><textarea class="form-control text3" name="content" rows="5"></textarea>
+    </div>
+  </div>
+  <div class="form-group">
+      <div class="col-sm-12">
+        <button type="submit" class="btn btn-default btn-primary">提交评论</button>
+    </div>
+  </div>
+  <% } else { %>
+      <p>
+          <strong>注册用户登录后才能发表评论，请 <a href="/login">登录</a> 或 <a href="/reg">注册</a>，访问网站
+              <a href="/">首页</a>。</strong>
+      </p>
+      <% } %>
+
+</form>
+<!-- <form method="post">
+    <% if (user) { %>
+        姓名：<input type="text" name="name" value="<%= user.name %>" /><br />
+        邮箱：<input type="text"  name="email" value="<%= user.email %>" /><br />
+        网址：<input type="text" name="website" value="/u/<%= user.name %>" /><br />
+        <% } else { %>
+            姓名：<input type="text"  name="name" /><br />
+            邮箱：<input type="text"  name="email" /><br />
+            网址：<input type="text"  name="website" value="http://" /><br />
+            <% } %>
+            <textarea name="content"  rows="5" cols="50"></textarea><br />
+            <button type="submit" class="btn btn-default btn-primary">留言</button>
+</form> -->

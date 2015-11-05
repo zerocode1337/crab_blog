@@ -1,0 +1,56 @@
+<%- include header %>
+
+<div class="container">
+	<div class="row">
+		<div class="col-md-12">
+			<div class="panel panel-default">
+				<div class="panel-body">
+					<form method="post">
+						<h4>标题：</h4>
+						<input type="text" class="form-control" style="width:50%" placeholder="标题" name="title" /><br />
+						<!-- <input type="text" class="form-control" placeholder="标签" name="tag1" /><br />						 -->
+
+						<h4>正文：</h4>
+						<div id="text-area">
+							<% if(typeEditor == 1) {%>
+								<textarea id="editor_id" name="post" style="width:100%;height:300px;"></textarea>
+							<%} else if(typeEditor == 2){%>
+								<textarea class="form-control" name="post" rows="20" cols="100"></textarea><br />
+							<%}%>
+						</div>
+
+						<script type="text/javascript">
+						// function changeEventHandler(event){
+						// 	// alert('You like ' + event.target.value + ' ice cream.');
+						// 	var obj = document.getElementById("editor");
+						// 	var index = obj.selectedIndex;
+						// 	// //  var text = obj.options[index].text;
+						// 	var value = obj.options[index].value;
+						// 	//var value = event.target.value;
+						// 	alert(value);
+						// 	if(value == 1){
+						// 		document.getElementById("text-area").innerHTML = "<textarea class=\"form-control\" name=\"post\" rows=\"20\" cols=\"100\"></textarea><br />";
+						// 	}else if(value == 2){
+						// 		document.getElementById("text-area").innerHTML = "<textarea id=\"editor_id\" name=\"post\" style=\"width:100%;height:300px;\"></textarea>"
+						// 	}
+						// }
+						</script>
+
+
+						<!-- <textarea id="editor_id" name="post" style="width:100%;height:300px;"></textarea> -->
+						<!-- <textarea class="form-control" name="post" rows="20" cols="100"></textarea><br /> -->
+						<h4>添加标签:</h4>
+						<input type="text" style="width:40%" class="form-control" placeholder="标签1,可为空" name="tag1" />
+						<input type="text" style="width:40%" class="form-control" placeholder="标签2,可为空" name="tag2" />
+						<input type="text" style="width:40%" class="form-control" placeholder="标签3,可为空" name="tag3" />
+						<hr>
+						<button type="submit" class="btn btn-info ">发表</button>
+					</form>
+				</div>
+			</div>
+		</div>
+
+	</div>
+</div>
+
+<%- include footer %>

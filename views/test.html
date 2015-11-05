@@ -1,0 +1,81 @@
+<div class="container">
+
+    <!-- big header -->
+    <div class="setting">
+        <h2 class="page-title"><i class="fa fa-cogs"></i> 设置</h2>
+        <ul class="nav nav-tabs">
+            <li class="active">
+                <a href="#basic" data-toggle="tab">
+                    基础设置
+                </a>
+            </li>
+            <!-- profile sns misc -->
+            <li>
+                <a href="#profile" data-toggle='tab'>
+                    个人资料
+                </a>
+            </li>
+            <li>
+                <a href="#sns" data-toggle='tab'>
+                    社交帐号
+                </a>
+            </li>
+            <li>
+                <a href="#pass" data-toggle='tab'>
+                    修改密码
+                </a>
+            </li>
+            <li>
+                <a href="#misc" data-toggle='tab'>
+                    其他
+                </a>
+            </li>
+            <li>
+                <a href="#blacklist" data-toggle='tab'>
+                    黑名单
+                </a>
+            </li>
+            <li>
+                <a href="#reward" data-toggle='tab'>
+                    打赏设置
+                </a>
+            </li>
+            <li>
+                <a href="#destroy" data-toggle="tab">
+                    帐号管理
+                </a>
+            </li>
+        </ul>
+
+        <div class="tab-content">
+
+            <div class="tab-pane" id="reward">
+                <h4>
+                    打赏管理
+                    <span class="notice">启用后打赏按钮将出现在您的文章底部</span>
+                </h4>
+                <form id="settings-reward" class="settings" action="/users/bb5eac140dbf" accept-charset="UTF-8" data-remote="true" method="post"><input name="utf8" type="hidden" value="&#x2713;" /><input type="hidden" name="_method" value="patch" />
+                    <div class="control-group">
+                        <a class="btn btn-info" rel="nofollow" data-method="put" href="/users/toggle_all_notes_rewardable">为所有文章关闭打赏</a>
+                    </div>
+
+                    <div class="control-group">
+                        <label class="control-label">默认接受打赏金额</label>
+                        <div class='input-prepend'>
+                            <span class='add-on'><i class="fa fa-cny fa-fw"></i></span>
+                            <input value="2.00" class="input-small" type="text" name="user[reward_setting][default_amount]" id="user_reward_setting_default_amount" />
+                        </div>
+                    </div>
+                    <div class="control-group">
+                        <label class="control-label">打赏描述</label>
+                        <textarea placeholder="如果觉得我的文章对您有用，请随意打赏。您的支持将鼓励我继续创作！" rows="5" class="input-xxlarge" name="user[reward_setting][description]" id="user_reward_setting_description">
+                        </textarea>
+                    </div>
+                </form>
+            </div>
+            <button class="ladda-button submit-button" data-size="m" data-color="blue" data-method="get" data-style="slide-left">
+                <span class="ladda-label">保 存</span>
+            </button>
+        </div>
+    </div>
+</div>

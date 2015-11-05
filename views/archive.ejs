@@ -1,0 +1,39 @@
+<%- include header%>
+
+
+
+
+<div class="" style="min-height:366px">
+
+<div class="timeline">
+    <% var lastYear = 0 %>
+    <% posts.forEach(function (post, index) { %>
+    <% if (lastYear != post.time.year) { %>
+    <% if (index != 0) {%>
+        </ul>
+    </div>
+    <% } %>
+	<div class="timeline-date">
+		<ul>
+			<h2 class="second" style="position: relative;">
+				<span><%= post.time.year %>年</span>
+			</h2>
+            <% lastYear=post.time.year } %>
+			<li>
+                <%var time = post.time.day %>
+                <%time = time.substr(5,4); %>
+
+				<h3><%= time%></h3>
+				<dl class="right">
+					<a href="/u/<%= post.name %>/<%= post.time.day %>/<%= post._id %>"><%= post.title %></a>
+				</dl>
+			</li>
+
+    <% }) %>
+</ul>
+</div>
+</div>
+
+
+</div>
+<%- include footer%>

@@ -1,0 +1,149 @@
+<%- include header %>
+<div class="container" style="background-color:rgb(245, 245, 245);min-height:366px">
+
+    <div class="row">
+        <div class="col-md-12">
+            <h2 style="text-align:center;"><img src="/images/Setting_24.ico" alt="" /> 设置</h2>
+            <div class="">
+                <ul class="nav nav-tabs">
+                    <li class="active">
+                        <a href="#basic" data-toggle="tab">
+                            基础设置
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#profile" data-toggle='tab'>
+                            个人资料
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#pass" data-toggle='tab'>
+                            修改密码
+                        </a>
+                    </li>
+                </ul>
+
+                <div class="tab-content">
+                    <div class="tab-pane active" id="basic">
+                        <form id="settings" enctype="multipart/form-data"  method="post">
+
+                            <div class="control-group" style="margin-left:25%"><br><br><br>
+                                <h4><strong>用户名和电子邮件</strong></h4><br>
+                                <label class="control-label">用户名</label>
+                                <input type="text" style="width:40%" class="form-control" value="<%= user%>" disabled="true" />
+                                <br>
+                                <label class="control-label" id="labelEmail">电子邮件<br>
+                                    <input type="email" id="setEmail" style="display:inline" maxlength="35" class="form-control" name="settingsEmail" value="<%= email%>" disabled="true"/>
+                                </label>
+                                <input type="button" class="btn btn-info" name="name" value="修改" onclick="setEm()">
+                                <br>
+                            </div>
+                            <hr>
+                            <div class="control-group" style="margin-left:25%">
+                                <h4><strong>选择常用的编辑器<span class="notice">  切换后对新建文章生效</span></strong></h4><br>
+                                <div class="radio">
+                                    <label>
+                                        <input type="radio" name="optionsRadios" id="optionsRadios1" value="1"
+                                        <% if (typeEditor == 1){%>
+                                            checked
+                                        <%}%>
+                                        >
+                                        KindEditor(富文本编辑器)
+                                    </label>
+                                </div>
+                                <div class="radio">
+                                    <label>
+                                        <input type="radio" name="optionsRadios" id="optionsRadios2" value="2"
+                                        <% if (typeEditor == 2){%>
+                                            checked
+                                        <%}%>
+                                        >
+                                        Markdown
+                                    </label>
+                                </div>
+                            </div>
+                        </form>
+                        <br>
+                    </div>
+                    <div class="tab-pane" id="profile">
+                        <!-- <form id="settings-profile" class="settings" enctype="multipart/form-data" accept-charset="UTF-8" data-remote="true" method="post"> -->
+                            <div class="control-group" style="margin-left:25%">
+                                <br><br><br>
+                                <label class="control-label"><h4><strong>头像</strong></h4></label>
+                                <input type="text" name="settingsTempPhoto" form="settings" value="" hidden="true">
+                                <div class="avatar">
+                                    <img src="<%= photo%>" alt="1000" class="img-circle"/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                    <div class="btn-group change-avatar" style="background-color:rgba(201, 201, 201,0.5); border-radius:10%">
+                                        <a class="btn dropdown-toggle" data-toggle="dropdown" href="#"disabled>更换头像(此功能暂未开放) <span class="caret"></span></a>
+                                        <ul class="dropdown-menu arrow-top">
+                                            <li>
+                                                <input type="file" id="exampleInputFile" form="settings" name="settingsPhoto" disabled>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+
+                                <br><br>
+
+                                <label class="control-label">简介</label><br>
+                                <textarea  class="form-control" form="settings" name="settingsInfo" placeholder="填写您的个人简介可以帮助其他人更好的了解您。" maxlength="200" rows="5" style="width:60%"><%= info%></textarea>
+                                <br><br>
+                                <label class="control-label">个人主页</label>
+                                <input type="text" style="width:40%" class="form-control" maxlength="50" value="<%= index%>" name="settingsIndex" form="settings" placeholder="您的个人主页 http://example.com" />
+                                <br>
+                            </div>
+                        <!-- </form> -->
+                    </div>
+
+                    <div class="tab-pane" id="pass" >
+                        <br><br><br>
+                        <!-- <form id="settings-pass" class="settings" method="post"> -->
+                            <div class="" style="margin-left:25%; width:40%">
+                                <label class="control-label">当前密码</label>
+                                <input type="password" form="settings" maxlength="16" name="settingsNowPass" class="form-control" />
+                                <br>
+                                <label class="control-label">新密码</label>
+                                <input type="password" form="settings" maxlength="16" placeholder="请输入密码(6-16)" name="settingsNewPass" class="form-control" />
+                                <br>
+                                <label class="control-label">确认密码</label>
+                                <input type="password" form="settings" maxlength="16" placeholder="请再次输入密码(6-16)" name="settingsPassAgain" class="form-control" />
+                                <br>
+                            </div>
+                        <!-- </form> -->
+                        <br>
+                    </div>
+                    <button type="button" name="button" class="btn btn-info btn-lg" style="margin-left:25%" onclick="saveMethod()">保存</button>
+                    <br><br>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<script type="text/javascript">
+function saveMethod(){
+    var forms = document.getElementById("settings");
+    var NewPass = forms.settingsNewPass.value;
+    var PassAgain = forms.settingsPassAgain.value;
+    var NowPass = forms.settingsNowPass.value;
+    if(NewPass != "" || PassAgain != ""){
+        if(NewPass != PassAgain){
+            alert("两次密码不一致!");
+            return false;
+        }
+        if(NowPass == ""){
+            alert("当前密码不能为空!");
+            return false;
+        }
+    }else if(NowPass != ""){
+        alert("新密码不能为空!");
+        return false;
+    }
+    forms.settingsTempPhoto.value = forms.settingsPhoto.value;
+    forms.submit();
+}
+function setEm(){
+    var Email = document.getElementById('labelEmail').control;
+    Email.disabled = false;
+}
+</script>
+<%- include footer %>

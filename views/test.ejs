@@ -1,0 +1,400 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title><%= title%></title>
+
+<link rel="stylesheet" href="/stylesheets/css/bootstrap.min.css">
+<link rel="stylesheet" href="/stylesheets/css/style_from_net.css">
+
+<script src="/javascripts/app.js" charset="utf-8"></script>
+<script charset="utf-8" src="/kindEditor/kindeditor-min.js"></script>
+<script charset="utf-8" src="/kindEditor/lang/zh_CN.js"></script>
+<script>
+        KindEditor.ready(function(K) {
+                window.editor = K.create('#editor_id');
+        });
+		var options = {
+        cssPath : '/css/index.css',
+        filterMode : true
+};
+</script>
+
+<style media="screen">
+
+
+
+#preview{
+    background-color: rgba(255, 255, 255, 0);
+    position:fixed;
+    /*right:120px;*/
+    top:100px;
+    overflow: visible;
+}
+#TOC{
+	margin:10px;
+    margin-top: 30px;
+    padding: 10px;
+}
+.TOCEntry{
+	font-family: sans-serif;
+}
+.TOCEntry a{
+	text-decoration: none;
+    color:rgba(0, 34, 47, 0.7);
+}
+.TOCEntry a:hover{
+	text-decoration: none;
+    color:rgba(0, 201, 255, 0.8);
+}
+/*.TOCLevel1{
+	font-size: 16pt; font-weight: bold;
+}*/
+.TOCLevel2{
+	font-size: 1.2em;margin-left: .1in;
+    /*color:rgb(132, 244, 216);*/
+}
+.TOCLevel3{
+	font-size: 1em; margin-left: .25in;
+    display: none;
+}
+.TOCSectNum:after{
+	content: ": ";
+}
+.TOCSectNum{
+	display: none;
+}
+
+
+/*html {overflow:hidden}*/
+ .screen {width:100%; height:100%;
+	 position: relative;
+	 margin:0; padding:0;
+	 margin-left: -25px;
+	 margin-top:-55px;
+ }
+#screen {left:0; top:0; zoom:1;}
+#screen a {position:absolute; font-size:12; overflow:hidden; padding:1px 2px; font-weight:bold;}
+#screen a:hover {border: 1px solid #ccc; background:#666}
+
+/*body { padding-top: 70px;background:rgb(230, 230, 230); }*/
+/*body {background:rgb(245, 245, 245); }*/
+@font-face{
+	font-family: kevins;
+	src:url('/stylesheets/fonts/Comfortaa-Bold.ttf');
+}
+/*.footer-ps{
+	style:font-size:14px; color:rgb(194, 194, 194)
+
+}*/
+body,html{
+	height:100%;
+}
+.head{
+	font-size: 40px;
+}
+.footer{
+	height:180px;
+	background-color:rgba(0, 0, 0, 0.9);
+	width: 100%;
+}
+.footer-p{
+	color:rgb(255, 255, 255);
+	font-size: 45px;
+	position:relative;
+	/*position:absolute;*/
+	/*bottom: 20px;*/
+	bottom: -40px;
+	text-align: center;
+	/*left: 45%;*/
+	font-family: kevins,cursive;
+	/*font-family: cursive,inherit,serif,sans-serif,fantasy,cursive,monospace;*/
+}
+.panel{
+	border:0px solid grey;
+}
+.upTop .top-btn{
+	/*width: 40px;*/
+	/*height:50px;*/
+	position:fixed;
+	bottom:30px;
+	/*background: red;*/
+	left:96%;
+	/*margin-right: 100px;*/
+}
+.upTop.top-btn:hover{
+	background: rgb(227, 221, 221);
+}
+#inputName3{
+	padding:9px 9px 9px 48px;background:url(./images/user_16.ico) 10px
+	no-repeat }
+#inputPassword3,#inputPasswordRepeat3{
+	padding:9px 9px 9px 48px;background:url(./images/lock_16.ico) 12px 10px
+	no-repeat}
+#inputEmail3{
+	padding:9px 9px 9px 48px;background:url(./images/email_16.ico) 10px
+	no-repeat}
+.login_ico input{
+	float:left;border:none;background:none;height:40px;line-height:30px;width:100%;
+	text-indent:32px;}
+.note{
+	color: green;
+}
+.alert{
+	padding: 1px;
+}
+.img-circle{
+	max-width:45px;
+	max-height: 45px;
+}
+.dropdown-menu{
+	font-size: 15px;
+	border-radius: 10px;
+}
+
+.footer-p a:link, .test a:link {
+	color: rgb(3, 3, 3); text-decoration: none
+}
+.footer-p , .test a:visited {
+	color: rgb(45, 45, 45); text-decoration: none
+}
+.footer-p a:hover, .test a:hover {
+	color: rgb(31, 208, 219); text-decoration: none
+}
+
+.head:visited{
+	color: rgb(9, 219, 232); text-decoration: none
+}
+.container{
+    min-height:500px;
+}
+.comments{
+	font-size:14px;
+    line-height:24px;
+    margin:10px 0;
+    padding:20px;
+    background:#F2F2F2;
+    box-shadow:0 0 5px #aaa;
+}
+.text3{
+    margin-top:10px;
+    background:white;
+    color:#333;
+    border:2px solid #fff;
+    box-shadow:inset 0 0 8px #aaa;
+    padding:10px;
+    height:120px;
+    font-size:14px;
+}
+.share_ico1,.share_ico2{
+    float:right;
+    border-radius:15px;
+}
+.share1:hover{
+    background-color: rgb(19, 248, 255);
+}
+.share1:link{
+    background-color :rgba(12, 144, 218, 0.28); text-decoration: none;
+}
+</style>
+<script type="text/javascript">
+
+
+	function noteName(){
+		document.getElementById("noteNameS").hidden = "";
+		document.getElementById("noteName").innerHTML="请输入用户名";
+	}
+	function checkName(){
+		var name = document.getElementById("inputName3").value;
+		if(name == '' || name == undefined){
+			document.getElementById("noteName").style.color = "red";
+			document.getElementById("noteNameS").hidden = "";
+			document.getElementById("noteName").innerHTML="用户名不能为空";
+			document.getElementById("icon-name").innerHTML="";
+		}else if(name.length < 5 || name.length > 16){
+			document.getElementById("noteName").style.color = "red";
+			document.getElementById("noteNameS").hidden = "";
+			document.getElementById("noteName").innerHTML="用户名长度不符(5-16)";
+			document.getElementById("icon-name").innerHTML="";
+		}else{
+			document.getElementById("noteNameS").hidden = "hidden";
+
+			document.getElementById("icon-name").innerHTML="<span class='glyphicon glyphicon-ok form-control-feedback' aria-hidden='true'></span>";
+		}
+	}
+	function notePassword(){
+		document.getElementById("notePasswordS").hidden = "";
+		document.getElementById("notePassword").innerHTML="请输入密码";
+	}
+	function checkPassword(){
+		var name = document.getElementById("inputPassword3").value;
+		if(name == '' || name == undefined){
+			document.getElementById("notePassword").style.color = "red";
+			document.getElementById("notePasswordS").hidden = "";
+			document.getElementById("notePassword").innerHTML="密码不能为空";
+			document.getElementById("icon").innerHTML="";
+		}else if(name.length < 6 || name.length > 16){
+			document.getElementById("notePassword").style.color = "red";
+			document.getElementById("notePasswordS").hidden = "";
+			document.getElementById("notePassword").innerHTML="密码长度不符(6-16)";
+			document.getElementById("icon-password").innerHTML="";
+		}else{
+			document.getElementById("notePasswordS").hidden = "hidden";
+
+			document.getElementById("icon-password").innerHTML="<span class='glyphicon glyphicon-ok form-control-feedback' aria-hidden='true'></span>";
+		}
+	}
+
+	function noteReap(){
+		document.getElementById("notePasswordRepeatS").hidden = "";
+		document.getElementById("notePasswordRepeat").innerHTML="请再次输入密码";
+	}
+	function checkPasswordAgain(){
+		var name1 = document.getElementById("inputPasswordRepeat3").value;
+		var name2 = document.getElementById("inputPassword3").value;
+		if(name1 == '' || name1 == undefined){
+			document.getElementById("notePasswordRepeat").style.color = "red";
+			document.getElementById("notePasswordRepeatS").hidden = "";
+			document.getElementById("notePasswordRepeat").innerHTML="密码不能为空";
+			document.getElementById("icon-passwordRepeat").innerHTML="";
+		}else if(name1 != name2){
+			document.getElementById("notePasswordRepeat").style.color = "red";
+			document.getElementById("notePasswordRepeatS").hidden = "";
+			document.getElementById("notePasswordRepeat").innerHTML="密码不一致";
+			document.getElementById("icon-passwordRepeat").innerHTML="";
+		}else{
+			document.getElementById("notePasswordRepeatS").hidden = "hidden";
+
+			document.getElementById("icon-passwordRepeat").innerHTML="<span class='glyphicon glyphicon-ok form-control-feedback' aria-hidden='true'></span>";
+		}
+	}
+	function checkall(){
+		var flag1 = document.getElementById("icon-passwordRepeat").innerHTML;
+		var flag2 = document.getElementById("icon-name").innerHTML;
+		var flag3 = document.getElementById("icon-password").innerHTML;
+
+		if(flag1 != "" && flag2 != "" && flag3 != ""){
+			return true;
+		}
+		return false;
+	}
+</script>
+</head>
+<body>
+	<!-- navbar-fixed-top height:30px-->
+<nav class="navbar navbar-default  navbar-inverse " style="">
+	<div class="container-fluid">
+		<!-- Brand and toggle get grouped for better mobile display -->
+		<div class="navbar-header">
+			<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+				<span class="sr-only">Toggle navigation</span>
+				<span class="icon-bar"></span>
+				<span class="icon-bar"></span>
+				<span class="icon-bar"></span>
+			</button>
+			<a class="navbar-brand head" style="font-family:kevins"href="/">crab</a>
+			<!-- <a class="navbar-brand" href="/"><img src="/images/home_24.ico" alt="Home" /></a> -->
+		</div>
+
+		<!-- Collect the nav links, forms, and other content for toggling -->
+		<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+			<ul class="nav navbar-nav" >
+				<li class="active"><a href="/"><span style="font-family:kevins">home</span> <span class="sr-only">(current)</span></a></li>
+				<li><a href="#"><span style="font-family:kevins">Contact</span></a></li>
+				<li><a href="/links"><span style="font-family:kevins">Link</span></a></li>
+				<li class="dropdown">
+				<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><span style="font-family:kevins">test</span> <span class="caret"></span></a>
+				<ul class="dropdown-menu">
+					<li><a href="/upload">上传</a></li>
+					<li><a href="/archive"><span style="font-family:kevins">Archives</span></a></li>
+					<li><a href="#">Something else here</a></li>
+					<li role="separator" class="divider"></li>
+					<li><a href="#">Separated link</a></li>
+					<li role="separator" class="divider"></li>
+					<li><a href="#">One more separated link</a></li>
+				</ul>
+				</li>
+
+			</ul>
+			<ul class="nav navbar-nav navbar-right">
+
+				<% if(user){ %>
+                    <li><a href="/archive"><span style="font-family:kevins">Archives</span></a></li>
+					<li><a href="/post"><span style="font-family:kevins">New</span></a></li>
+					<!-- <p class="navbar-text">Welcome</p> -->
+
+					<li class="dropdown">
+					<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><span style="font-family:kevins"><%= user %></span> <span class="caret"></span></a>
+					<ul class="dropdown-menu" role="menu" aria-labelledby="dropdown-Menu2">
+						<li role="presentation"><a a role="menuitem" tabindex="-1" href="/post"><img src="/images/pen_16.ico" alt="" />&emsp;新随笔</a></li>
+						<li role="presentation"><a a role="menuitem" tabindex="-1" href="/post"><img src="/images/user_black_16.ico" alt="" />&emsp; 我的主页</a></li>
+						<li role="presentation"><a a role="menuitem" tabindex="-1" href="/post"><img src="/images/message_16.ico" alt="" />&emsp;私信</a></li>
+						<li role="presentation"><a a role="menuitem" tabindex="-1" href="/personal"><img src="/images/personal_16.ico" alt="" />&emsp;个人中心</a></li>
+
+						<li role="separator" class="divider"></li>
+						<li><a href="/logout"><img src="/images/exit_16.ico" alt="" />&emsp;退出</a></li>
+					</ul>
+					</li>
+					<li><img src="<%= photo%>"  alt="..." class="img-circle"></li>
+
+				<% } else { %>
+					<li><a href="/reg">注册</a></li>
+					<li><a href="/login">登录</a></li>
+				<% } %>
+
+			</ul>
+			<form action="/search" method="get" class="navbar-form navbar-right" role="search">
+				<div class="form-group">
+					<input type="text" class="form-control" name="keyword" placeholder="Search">
+				</div>
+				<button type="submit" class="btn btn-link"><img src="/images/Search_24.ico" alt="" /></button>
+			</form>
+
+		</div><!-- /.navbar-collapse -->
+	</div><!-- /.container-fluid -->
+</nav>
+
+<% if(error) { %>
+	<script type="text/javascript">
+		alert("<%= error%>");
+	</script>
+	<!-- <div><%= error %></div> -->
+<% } %>
+
+<div class="container">
+	<div class="row">
+		<div class="col-md-9">
+			<div class="panel panel-default">
+				<div class="panel-body">
+					<form method="post">
+						<h4>标题：</h4>
+						<input type="text" class="form-control" placeholder="标题" name="title" /><br />
+						<!-- <input type="text" class="form-control" placeholder="标签" name="tag1" /><br />						 -->
+						<h4>正文：</h4>
+						<textarea id="editor_id" name="content" style="width:700px;height:300px;"></textarea>
+						<!-- <textarea class="form-control" name="post" rows="20" cols="100"></textarea><br /> -->
+						<h4>添加标签:</h4>
+						<input type="text" style="width:400px" class="form-control" placeholder="标签1,可为空" name="tag1" />
+						<input type="text" style="width:400px" class="form-control" placeholder="标签2,可为空" name="tag2" />
+						<input type="text" style="width:400px" class="form-control" placeholder="标签3,可为空" name="tag3" />
+						<hr>
+						<button type="submit" class="btn btn-info ">发表</button>
+					</form>
+				</div>
+			</div>
+		</div>
+		<div class="col-md-3">
+			<div class="panel panel-default">
+				<div class="panel-body">
+					<%= title%>
+					<br>
+					<%= user%>
+					<br>
+
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+
+<%- include footer %>

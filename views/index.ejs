@@ -1,0 +1,70 @@
+<%- include header %>
+
+<div class="container" style="min-height:366px">
+	<div class="row">
+		<div class="col-xs-9">
+			<div class="panel panel-default">
+				<div class="panel-body test">
+					<% posts.forEach(function(post,index){%>
+						<div style="background-color:rgba(237, 242, 239, 0.5);border-radius:20px; border:1px solid rgba(218, 218, 218,0.6)">
+						<p><h2 style="background:url('/images/pen_32.ico') no-repeat 0 3px;"><a href="/u/<%= post.name %>/<%= post.time.day %>/<%= post._id%>">&emsp;&nbsp;<%= post.title %></a></h2></p>
+
+						<hr>
+						<div style="font-family: kevins; color:rgba(125, 128, 122, 0.88)">
+							&nbsp;&nbsp;内容摘要:&nbsp;&nbsp;<div class="" style="margin-left:20px">
+							<%- post.post.substring(0,200).toString()%></div>
+						</div>
+						<br>
+						<h4>&nbsp;&nbsp;&nbsp;&nbsp;<a href="/u/<%= post.name %>/<%= post.time.day %>/<%= post._id%>"><strong>阅读全文 &gt;&gt;</strong></a></h4>
+						<br>
+						<p class="info">
+							<div class="" style="color:rgba(111, 116, 112, 0.62); float:right">
+								Post by <a href="/u/<%= post.name %>"><%= post.name%></a> |
+								at <%= post.time.minute%>
+								阅读  (<%= post.pv%>)
+								评论  (<%= post.comments.length%>)
+
+								  <% if (post.reprint_info.reprint_to) { %>
+								    转载 (<%= post.reprint_info.reprint_to.length%>)
+								  <% } else { %>
+								    转载 (<%= 0%>)
+								  <% } %>
+
+								<% if (user && (user == post.name)) { %>
+									&nbsp;<a class="edit" href="/edit/<%= post.name%>/<%= post.time.day%>/<%= post._id%>">编辑</a>
+									&nbsp;<a class="edit" href="/remove/<%= post.name%>/<%= post.time.day%>/<%= post._id%>">删除</a>
+									<% } %>
+								</div>
+							</p>
+							<br>
+						</div>
+							<hr>
+							<%})%>
+							<%- include paging%>
+						</div>
+					</div>
+				</div>
+				<div class="col-xs-3">
+					<div class="panel panel-success">
+						<br><br>
+						<div class="panel-heading" style="text-align:center; border-radius:15px">公告</div>
+						<div class="panel-body">
+							<div class="well" style=" border-radius:15px"><p style="font-family:kevins; ">The quieter you become, the more you are able to hear.</p></div>
+						</div>
+					</div>
+					<div class="panel panel-success">
+						<div class="panel-heading" style="text-align:center;  border-radius:15px">热门标签</div>
+						<div class="panel-body" style="height:350px">
+							<div id="screen" class="screen">
+								<% tags.forEach(function (tag, index) { %>
+								  <a class="tag" href="/tags/<%= tag %>"><%= tag %></a>
+								<% }) %>
+							</div>
+						</div>
+					</div>
+
+				</div>
+			</div>
+		</div>
+		<script src="/javascripts/tags.js"></script>
+		<%- include footer %>

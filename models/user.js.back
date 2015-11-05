@@ -1,0 +1,79 @@
+var mongodb = require('./db.js');
+
+function User(user){
+	this.name = user.name;
+	this.password = user.password;
+	this.email = user.email;
+	this.photo = "/images/photo.jpg";
+};
+
+module.exports = User;
+
+// save user's infomation
+User.prototype.save = function(callback){
+	var user = {
+		name: this.name,
+		password: this.password,
+		email: this.email,
+		photo: this.photo
+	};
+	console.log(user.name + " " + user.password);
+	//open database
+	mongodb.open(function(err,db){
+		if(err){
+			return callback(err);
+		}
+		// read user set
+		db.collection('users',function(err,collection){
+			if(err){
+				mongodb.close();
+				return callback(err);
+			}
+			//insert user's info to set
+			collection.insert(user,{
+				safe: true
+			//}, function(err,user){
+			//	console.log(user.ops[0].name);
+			//	mongodb.close();
+			//	if(err){
+			//		return callback(err);
+			//	}
+			//	callback(null,user.ops[0].name); //success!
+			//});
+				}, function(err,user){
+				console.log(user.ops[0].name);
+				mongodb.close();
+				if(err){
+					return callback(err);
+				}
+				callback(null,user); //success!
+			});
+		});
+		
+	});
+};
+//read user's infomation
+User.get = function(name,callback){
+	mongodb.open(function(err,db){
+		if(err){
+			return callback(err);
+		}
+		// read users set
+		db.collection('users', function(err,collection){
+			if(err){
+				mongodb.close();
+				return callback(err);
+			}
+			//search name 
+			collection.findOne({
+				name:name
+			},function(err,user){
+				mongodb.close();
+				if(err){
+					return callback(err);
+				}
+				callback(null,user);
+			});
+		});
+	});
+};

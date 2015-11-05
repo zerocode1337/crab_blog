@@ -1,0 +1,70 @@
+<%- include header %>
+
+<div class="container" style="min-height:366px">
+	<div class="row">
+		<div class="col-xs-9">
+			<div class="panel panel-default">
+				<div class="panel-body test">
+
+					<p><h1><%= post.title %></h1></p>
+					<hr>
+					<% if (post.reprint_info.reprint_from) { %>
+  				<br><a href="/u/<%= post.reprint_info.reprint_from.name %>/<%= post.reprint_info.reprint_from.day %>/<%= post.reprint_info.reprint_from._id %>">原文链接</a>
+					<hr>
+					<% } %>
+					<p><%- post.post %></p>
+					<hr>
+					Do one thing , and do it well !
+					<hr>
+
+					<a class="share1 share_ico1" href="/reprint/<%= post.name %>/<%= post.time.day %>/<%= post._id %>">&nbsp;&nbsp;&nbsp;<img src="/images/share_16.ico" alt="" /> 转载&nbsp;&nbsp;&nbsp;</a>
+
+					<a class="share1 share_ico2" href="#">&nbsp;&nbsp;&nbsp;<img src="/images/good_16.ico" alt="" /> 赞&nbsp;&nbsp;&nbsp;</a>
+
+					<br><br>
+					<p class="info" style="float:right">
+						posted @ <a href="/u/<%= post.name%>"><%= post.name %></a> <%= post.time.minute%>
+						<% if (user && (user == post.name)) { %>
+						&nbsp;<a class="edit" href="/edit/<%= post.name%>/<%= post.time.day%>/<%= post._id%>">编辑</a>
+					    &nbsp;<a class="edit" href="/remove/<%= post.name%>/<%= post.time.day%>/<%= post._id%>">删除</a>
+						<!-- 作者: <a href="/u/<%= post.name%>"><%= post.name%></a> |
+						日期: <%= post.time.minute%> -->
+						<% } %>
+					</p>
+
+
+				</div>
+
+			</div>
+			<div class="panel panel-default">
+				<div class="panel-body test">
+					<%- include comment %>
+				</div>
+
+			</div>
+		</div>
+		<div class="col-xs-3">
+			<div class="preview" id="preview">
+
+			</div>
+		</div>
+	</div>
+</div>
+
+
+<script src="/javascripts/preview.js"></script>
+<script type="text/javascript">
+// alert(headings[0].firstChild.nextSibling.data);
+
+// window.onscroll = function(){
+// 	alert("aaa");
+// 	 alert(headings[0].firstChild.nextSibling.data);
+// 	var ht=document.documentElement.scrollTop || document.body.scrollTop;
+// 	for(var h = 0; h < headings.length; h++){
+// 		if(headings[h].offsetTop<ht+10 && headings[h+1].offsetTop>ht+10){
+// 			// headings[h].first
+// 		}
+// 	}
+// }
+// </script>
+<%- include footer %>

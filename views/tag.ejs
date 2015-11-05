@@ -1,0 +1,31 @@
+<%- include header %>
+
+<div class="container" style="min-height:366px">
+	<div class="row">
+		<div class="col-md-10">
+			<div class="panel panel-default">
+				<div class="panel-body test" style="padding-left:20%;">
+					<h2><li><%= title%>&nbsp;<small>标签</small></li></h2>
+					<br>
+
+					<% posts.forEach(function (post, index) { %>
+
+					    <a href="/u/<%= post.name %>/<%= post.time.day %>/<%= post._id %>"><h4><li><small><time><%= post.time.day %></time></small>&nbsp;<%= post.title %></li></h4></a>
+						<p class="info">
+							<div class="" style="color:rgba(111, 116, 112, 0.62); float:right">
+								Post by <a href="/u/<%= post.name %>"><%= post.name%></a>
+								阅读  (<%= post.pv%>)
+								评论  (<%= post.comments.length%>)
+							</div>
+						</p>
+						<br>
+						<hr>
+					<% }) %>
+					<%- include paging%>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+
+<%- include footer %>

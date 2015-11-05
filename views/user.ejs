@@ -1,0 +1,74 @@
+<%- include header %>
+
+<div class="container" style="min-height:366px">
+	<div class="row">
+		<div class="col-xs-9">
+			<div class="panel panel-default">
+				<div class="panel-body test">
+					<% posts.forEach(function(post,index){%>
+						<div style="background-color:rgba(237, 242, 239, 0.5);border-radius:20px; border:1px solid rgba(218, 218, 218,0.6)">
+						<p><h2 style="background:url('/images/pen_32.ico') no-repeat 0 3px;"><a href="/u/<%= post.name %>/<%= post.time.day %>/<%= post._id%>">&emsp;&nbsp;<%= post.title %></a></h2></p>
+
+						<hr>
+						<div style="font-family: kevins; color:rgba(125, 128, 122, 0.88)">
+							&nbsp;&nbsp;内容摘要:&nbsp;&nbsp;<div class="" style="margin-left:20px">
+							<%- post.post.substring(0,200).toString()%></div>
+						</div>
+						<br>
+						<h4>&nbsp;&nbsp;&nbsp;&nbsp;<a href="/u/<%= post.name %>/<%= post.time.day %>/<%= post._id%>"><strong>阅读全文 &gt;&gt;</strong></a></h4>
+						<br>
+						<p class="info">
+							<div class="" style="color:rgba(111, 116, 112, 0.62); float:right">
+								Post by <a href="/u/<%= post.name %>"><%= post.name%></a> |
+								at <%= post.time.minute%>
+								阅读  (<%= post.pv%>)
+								评论  (<%= post.comments.length%>)
+
+								  <% if (post.reprint_info.reprint_to) { %>
+								    转载 (<%= post.reprint_info.reprint_to.length%>)
+								  <% } else { %>
+								    转载 (<%= 0%>)
+								  <% } %>
+
+								<% if (user && (user == post.name)) { %>
+									&nbsp;<a class="edit" href="/edit/<%= post.name%>/<%= post.time.day%>/<%= post._id%>">编辑</a>
+									&nbsp;<a class="edit" href="/remove/<%= post.name%>/<%= post.time.day%>/<%= post._id%>">删除</a>
+									<% } %>
+								</div>
+							</p>
+							<br>
+						</div>
+							<hr>
+							<%})%>
+							<%- include paging%>
+						</div>
+			</div>
+		</div>
+		<div class="col-xs-3">
+			<div class="panel panel-success">
+				<br><br>
+				<div class="panel-heading" style="text-align:center; border-radius:15px">公告</div>
+				<div class="panel-body">
+					<div class="well" style=" border-radius:15px; background-color:rgba(0, 255, 232, 0.02)" >
+						<img src="/images/alien_24.ico" alt="" />  &nbsp;&nbsp;<span style="font-size:1.2em"><strong><%= name%></strong></span> <br><br>
+						<img src="/images/email_24.ico" alt="" />  &nbsp;&nbsp;<strong><%= email%></strong> <br><br>
+						<img src="/images/home_24px.ico" alt="" /> &nbsp;&nbsp;<strong><%= index%></strong> <br>
+						<hr>
+						<h4><strong>个人简介:</strong></h4> <br>
+						<p>
+							<%= info%>
+						</p>
+					</div>
+				</div>
+			</div>
+			<div class="panel panel-default">
+				<div class="panel-body">
+					<script type="text/javascript" src="//ra.revolvermaps.com/0/0/6.js?i=0pbj8fdu78x&amp;m=7&amp;s=220&amp;c=e63100&amp;cr1=ffffff&amp;f=arial&amp;l=0&amp;bv=90&amp;lx=-420&amp;ly=420&amp;hi=20&amp;he=7&amp;hc=a8ddff&amp;rs=80" async="async"></script>
+					<script charset="Shift_JIS" src="/javascripts/time.js"></script>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+
+<%- include footer %>

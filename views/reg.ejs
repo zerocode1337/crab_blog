@@ -1,0 +1,65 @@
+<%- include header %>
+<br>
+<div class="container">
+    <div class="row">
+        <div class="col-md-12">
+            <div class="panel panel-default">
+                <div class="panel-body" style="background:rgb(250, 250, 250)">
+                    <form class="form-horizontal" name="regForm" method="post" onsubmit="return checkall()">
+                        <div class="form-group  has-feedback">
+                            <div class="col-sm-offset-3 col-sm-5">
+                                <input type="text" class="login_ico form-control" name="name" id="inputName3" maxlength="16" placeholder="请输入用户名(5-16)" onfocus="noteName()" onblur="checkName()">
+                                <div id="icon-name"></div>
+                            </div>
+                            <div class=" col-sm-3">
+                                <div class="alert alert-info" id="noteNameS" role="alert" hidden="hidden"><span id="noteName" class="note"></span></div>
+                            </div>
+                        </div>
+                        <div class="form-group has-feedback">
+                            <div class="col-sm-offset-3 col-sm-5">
+                                <input type="password"  class="login_ico form-control" name="password" id="inputPassword3" maxlength="16" placeholder="请输入密码(6-16)" onfocus="notePassword()" onblur="checkPassword()">
+                                <div id="icon-password"></div>
+                            </div>
+                            <div class=" col-sm-3">
+                                <div class="alert alert-info" id="notePasswordS" role="alert" hidden="hidden"><span id="notePassword" class="note"></span></div>
+                            </div>
+                        </div>
+                        <div class="form-group has-feedback">
+                            <div class="col-sm-offset-3 col-sm-5">
+                                <input type="password"  class="login_ico form-control" name="password-repeat" id="inputPasswordRepeat3" placeholder="请再次输入密码" onfocus="noteReap()" onblur="checkPasswordAgain()">
+                                <div id="icon-passwordRepeat"></div>
+                            </div>
+                            <div class=" col-sm-3">
+                                <div class="alert alert-info" id="notePasswordRepeatS" role="alert" hidden="hidden"><span id="notePasswordRepeat" class="note"></span></div>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="col-sm-offset-3 col-sm-5">
+                                <input type="email"  class="login_ico form-control" name="email" id="inputEmail3" placeholder="请输入邮箱">
+                            </div>
+                            <div class=" col-sm-3">
+                                <div class="alert alert-info" id="" role="alert" hidden="true"><span id="noteName" class="note"></span></div>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="col-sm-offset-3 col-sm-3">
+                                <input type="text"  class="login_ico form-control" name="verify" id="inputVerify3" maxlength="8" placeholder="请输入验证码">
+                            </div>
+                            <div class="col-sm-3">
+                                <img src="/getCaptcha" alt="" onclick="this.src='/getCaptcha?'+new Date().getTime()"/>
+                            </div>
+                        </div>
+                        <br>
+                        <div class="form-group">
+                            <div class="col-sm-offset-3 col-sm-5">
+                                <button type="submit" class="btn btn-primary btn-block">注册</button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>
+<%- include footer %>

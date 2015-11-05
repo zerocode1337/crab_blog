@@ -1,0 +1,70 @@
+<%- include header %>
+
+<div class="container" style="background-color:rgba(233, 233, 233, 0.4)">
+	<div class="row">
+		<div class="col-md-3" >
+			<br>
+			<ul class="nav nav-pills  nav-stacked">
+			  <li role="presentation" class="active"><a href="#aboutMe" data-toggle="tab">关于&nbsp;&nbsp;我</a></li>
+			  <li role="presentation"><a href="#contactMe" data-toggle="tab">联系&nbsp;&nbsp;我</a></li>
+			  <li role="presentation"><a href="#links" data-toggle="tab">友情链接</a></li>
+			  <li role="presentation"><a href="#advice" data-toggle="tab">意见反馈</a></li>
+			</ul>
+		</div>
+		<div class="col-md-9" style="background-color:rgb(255, 255, 255)">
+			<div class="panel panel-default" >
+				<div class="tab-content">
+					<br>
+					<div class="tab-pane active" id="aboutMe">
+						<h3>关于我</h3>
+						<br>
+						<p>
+							小刘兴趣有三：撸码，（）（），自乙未年（2015）癸未月（7）开始学习web，此博客为期间作品。
+							当前致力于前端开发，此博客源码可在github上获得。
+						</p>
+						<img src="/images/me.jpg" alt="" />
+					</div>
+					<div class="tab-pane" id="contactMe">
+						<h3>联系我</h3>
+						<br>
+						<ul>
+							<li>gmail邮箱:<a href="mailto:zerocode.kevin@gmail.com">zerocode.kevin@gmail.com</a></li>
+							<br>
+							<li>QQ:283010700</li>
+						</ul>
+					</div>
+					<div class="tab-pane" id="links">
+						<h3>友情链接</h3>
+						<br>
+						<ul>
+							<li><a href="http://www.cnblogs.com/ubuntu-kevin/" target="_blank">zerocode博客园</a></li><br>
+							<li><a href="http://wilsonjuxta.github.io/" target="_blank">wilsonjuxta博客</a></li><br>
+							<li><a href="http://enumz.github.io/" target="_blank">Enumz博客</a></li><br>
+							<li><a href="http://blog.csdn.net/abcjennifer" target="_blank">Rachel-Zhang CSDN</a></li><br>
+
+						</ul>
+					</div>
+					<div class="tab-pane" id="advice">
+						<h3>友情链接</h3>
+						<br>
+						<form>
+						  <div class="form-group">
+						    <label for="titles">标题</label>
+						    <input type="text" class="form-control" id="titles" placeholder="标题" maxlength="20" style="width:70%">
+						  </div>
+						  <div class="form-group">
+						    <label for="contents">内容</label>
+						    <textarea class="form-control" id="contents" rows="10" style="width:70%" maxlength="200"></textarea>
+						  </div>
+
+						  <button type="submit" class="btn btn-default">Submit</button>
+						</form>
+					</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+
+<%- include footer %>

@@ -1,0 +1,57 @@
+<%- include header %>
+
+<div class="container" style="min-height:366px;">
+	<br><br><br><br><br>
+	<div class="row">
+		<div class="col-md-12">
+			<div class="panel panel-default">
+
+				<div class="panel-body" style="background:rgb(250, 250, 250)";>
+
+					<form class="form-horizontal" method="post">
+						<div class="form-group">
+							<label for="inputEmail3" class="col-sm-4 control-label">用户名</label>
+							<div class="col-sm-4">
+								<!-- <span class="glyphicon glyphicon-user form-control-feedback"  aria-hidden="true"></span> -->
+								<input type="text" class="login_ico form-control" name="name" id="inputEmail3"  maxlength="16" placeholder="请输入用户名">
+							</div>
+						</div>
+						<div class="form-group">
+
+							<label for="inputPassword3" class="col-sm-4 control-label">密码</label>
+							<div class="col-sm-4">
+								<!-- <span class="glyphicon glyphicon-lock form-control-feedback"  aria-hidden="true"></span> -->
+								<input type="password"  class="login_ico form-control" name="password" id="inputPassword3"  maxlength="16" placeholder="请输入密码">
+							</div>
+						</div>
+						<div class="form-group">
+							<div class="col-sm-offset-4 col-sm-4 ">
+								<hr>
+								<p>使用其他方式登录</p>
+								<a href="/login/baidu"><img src="/images/baidu_32.ico" alt="" /></a> &nbsp;&nbsp;&nbsp;
+								<a href="/login/github"><img src="/images/github_32.ico" alt="" /></a>
+								<!-- <a href="#">忘记密码?点我联系管理员</a> -->
+							</div>
+						</div>
+						<!-- <div class="form-group">
+							<div class="col-sm-offset-4 col-sm-4">
+								<div class="checkbox">
+									<label>
+										<input type="checkbox" name="remember"> Remember me
+									</label>
+								</div>
+							</div>
+						</div> -->
+						<div class="form-group">
+							<div class="col-sm-offset-4 col-sm-4">
+								<button type="submit" class="btn btn-primary btn-block">登录</button>
+							</div>
+						</div>
+					</form>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+
+<%- include footer %>
