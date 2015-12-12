@@ -2,9 +2,9 @@
 
 <div class="container" style="min-height:366px">
 	<div class="row">
-		<div class="col-xs-9">
+		<div class="col-md-9">
 			<div class="panel panel-default">
-				<div class="panel-body test">
+            <div class="panel-body test article-div">
 
 					<p><h1><%= post.title %></h1></p>
 					<hr>
@@ -16,11 +16,8 @@
 					<hr>
 					Do one thing , and do it well !
 					<hr>
-
-					<a class="share1 share_ico1" href="/reprint/<%= post.name %>/<%= post.time.day %>/<%= post._id %>">&nbsp;&nbsp;&nbsp;<img src="/images/share_16.ico" alt="" /> 转载&nbsp;&nbsp;&nbsp;</a>
-
-					<a class="share1 share_ico2" href="#">&nbsp;&nbsp;&nbsp;<img src="/images/good_16.ico" alt="" /> 赞&nbsp;&nbsp;&nbsp;</a>
-
+                    <a class="share1 share_ico1" href="/reprint/<%= post.name %>/<%= post.time.day %>/<%= post._id %>">&nbsp;&nbsp;&nbsp;<img src="/images/share_16.ico" class="article-func-img" alt="" /> 转载&nbsp;&nbsp;&nbsp;</a>
+                    <a class="share1 share_ico2" href="#">&nbsp;&nbsp;&nbsp;<img src="/images/good_16.ico" class="article-func-img" alt="" /> 赞&nbsp;&nbsp;&nbsp;</a>
 					<br><br>
 					<p class="info" style="float:right">
 						posted @ <a href="/u/<%= post.name%>"><%= post.name %></a> <%= post.time.minute%>
@@ -31,19 +28,15 @@
 						日期: <%= post.time.minute%> -->
 						<% } %>
 					</p>
-
-
 				</div>
-
 			</div>
 			<div class="panel panel-default">
 				<div class="panel-body test">
 					<%- include comment %>
 				</div>
-
 			</div>
 		</div>
-		<div class="col-xs-3">
+		<div class="col-md-3">
 			<div class="preview" id="preview">
 
 			</div>

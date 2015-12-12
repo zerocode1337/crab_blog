@@ -35,18 +35,20 @@
                         </div>
                         <div class="form-group">
                             <div class="col-sm-offset-3 col-sm-5">
-                                <input type="email"  class="login_ico form-control" name="email" id="inputEmail3" placeholder="请输入邮箱">
+                                <input type="email"  class="login_ico form-control" name="email" id="inputEmail3" required="true" placeholder="请输入邮箱">
                             </div>
                             <div class=" col-sm-3">
                                 <div class="alert alert-info" id="" role="alert" hidden="true"><span id="noteName" class="note"></span></div>
                             </div>
                         </div>
                         <div class="form-group">
-                            <div class="col-sm-offset-3 col-sm-3">
-                                <input type="text"  class="login_ico form-control" name="verify" id="inputVerify3" maxlength="8" placeholder="请输入验证码">
+                            <div class="col-sm-offset-3 col-sm-5">
+                                <input type="text"  class="login_ico form-control" style="display:inline-block; width:73%;" name="verify" id="inputVerify3" maxlength="8" placeholder="请输入验证码" onblur="checkVerify()">
+                                <img src="/getCaptcha" style="display:inline-block" alt="" onclick="this.src='/getCaptcha?'+new Date().getTime()"/>
+                                <div id="icon-verify" style="position:absolute; top:-0px; right:-15px"></div>
                             </div>
-                            <div class="col-sm-3">
-                                <img src="/getCaptcha" alt="" onclick="this.src='/getCaptcha?'+new Date().getTime()"/>
+                                <div class="col-sm-3">
+                                    <div class="alert alert-info" style="display:inline-block" id="noteVerifys" role="alert" hidden="hidden"><span id="noteVerify" class="note"></span></div>
                             </div>
                         </div>
                         <br>

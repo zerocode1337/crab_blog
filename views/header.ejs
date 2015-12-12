@@ -2,34 +2,35 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
 <title><%= title%></title>
 
 <link rel="stylesheet" href="/stylesheets/css/bootstrap.min.css">
 <link rel="stylesheet" href="/stylesheets/css/style_from_net.css">
-
 <script src="/javascripts/app.js" charset="utf-8"></script>
+<script src="/javascripts/utils.js" charset="utf-8"></script>
 <script charset="utf-8" src="/kindEditor/kindeditor-min.js"></script>
 <script charset="utf-8" src="/kindEditor/lang/zh_CN.js"></script>
 
 <script>
-        KindEditor.ready(function(K) {
-                window.editor = K.create('#editor_id',{
-                    allowImageUpload : false,
-                    items:[
-                        'undo', 'redo', '|', 'preview', 'print', 'template', 'code', 'cut', 'copy', 'paste',
-                        'plainpaste', 'wordpaste', '|', 'justifyleft', 'justifycenter', 'justifyright',
-                        'justifyfull', 'insertorderedlist', 'insertunorderedlist', 'indent', 'outdent', 'subscript',
-                        'superscript', 'clearhtml', 'quickformat', 'selectall', '|', 'fullscreen', '/',
-                        'formatblock', 'fontname', 'fontsize', '|', 'forecolor', 'hilitecolor', 'bold',
-                        'italic', 'underline', 'strikethrough', 'lineheight', 'removeformat', '|', 'image',
-                        'insertfile', 'table', 'hr', 'emoticons', 'baidumap', 'pagebreak',
-                        'anchor', 'link', 'unlink', '|', 'about'
-                    ]
-                });
+KindEditor.ready(function(K) {
+        window.editor = K.create('#editor_id',{
+allowImageUpload : false,
+items:[
+'undo', 'redo', '|', 'preview', 'print', 'template', 'code', 'cut', 'copy', 'paste',
+'plainpaste', 'wordpaste', '|', 'justifyleft', 'justifycenter', 'justifyright',
+'justifyfull', 'insertorderedlist', 'insertunorderedlist', 'indent', 'outdent', 'subscript',
+'superscript', 'clearhtml', 'quickformat', 'selectall', '|', 'fullscreen', '/',
+'formatblock', 'fontname', 'fontsize', '|', 'forecolor', 'hilitecolor', 'bold',
+'italic', 'underline', 'strikethrough', 'lineheight', 'removeformat', '|', 'image',
+'insertfile', 'table', 'hr', 'emoticons', 'baidumap', 'pagebreak',
+'anchor', 'link', 'unlink', '|', 'about'
+]
+});
         });
-		var options = {
-        cssPath : '/css/index.css',
-        filterMode : true
+var options = {
+cssPath : '/css/index.css',
+          filterMode : true
 };
 </script>
 
@@ -39,52 +40,52 @@
 #preview{
     background-color: rgba(255, 255, 255, 0);
     position:fixed;
-    /*right:120px;*/
+    right:120px;
     top:100px;
     overflow: visible;
 }
 #TOC{
-	margin:10px;
+    margin:10px;
     margin-top: 30px;
     padding: 10px;
 }
 .TOCEntry{
-	font-family: sans-serif;
+    font-family: sans-serif;
 }
 .TOCEntry a{
-	text-decoration: none;
+    text-decoration: none;
     color:rgba(0, 34, 47, 0.7);
 }
 .TOCEntry a:hover{
-	text-decoration: none;
+    text-decoration: none;
     color:rgba(0, 201, 255, 0.8);
 }
 /*.TOCLevel1{
-	font-size: 16pt; font-weight: bold;
+font-size: 16pt; font-weight: bold;
 }*/
 .TOCLevel2{
-	font-size: 1.2em;margin-left: .1in;
+    font-size: 1.2em;margin-left: .1in;
     /*color:rgb(132, 244, 216);*/
 }
 .TOCLevel3{
-	font-size: 1em; margin-left: .25in;
+    font-size: 1em; margin-left: .25in;
     display: none;
 }
 .TOCSectNum:after{
-	content: ": ";
+    content: ": ";
 }
 .TOCSectNum{
-	display: none;
+    display: none;
 }
 
 
 /*html {overflow:hidden}*/
- .screen {width:100%; height:100%;
-	 position: relative;
-	 margin:0; padding:0;
-	 margin-left: -25px;
-	 margin-top:-55px;
- }
+.screen {width:100%; height:100%;
+    position: relative;
+    margin:0; padding:0;
+    margin-left: -25px;
+    margin-top:-55px;
+}
 #screen {left:0; top:0; zoom:1;}
 #screen a {position:absolute; font-size:12; overflow:hidden; padding:1px 2px; font-weight:bold;}
 #screen a:hover {border: 1px solid #ccc; background:#666}
@@ -92,39 +93,39 @@
 /*body { padding-top: 70px;background:rgb(230, 230, 230); }*/
 /*body {background:rgb(245, 245, 245); }*/
 @font-face{
-	font-family: kevins;
-	/*src:url('/stylesheets/fonts/Comfortaa-Bold.ttf');*/
+    font-family: kevins;
+    /*src:url('/stylesheets/fonts/Comfortaa-Bold.ttf');*/
     src:url('/stylesheets/fonts/MONACO.TTF');
 }
 @font-face{
-	font-family: monaco;
-	src:url('/stylesheets/fonts/MONACO.TTF');
+    font-family: monaco;
+    src:url('/stylesheets/fonts/MONACO.TTF');
 }
 /*.footer-ps{
-	style:font-size:14px; color:rgb(194, 194, 194)
+style:font-size:14px; color:rgb(194, 194, 194)
 
 }*/
 body,html{
     font-family: kevins;
-	height:100%;
+    height:100%;
 }
 .head{
-	font-size: 40px;
+    font-size: 40px;
 }
 .footer{
-	height:180px;
-	background-color:rgba(0, 0, 0, 0.9);
-	width: 100%;
+    height:180px;
+    background-color:rgba(0, 0, 0, 0.9);
+    width: 100%;
 }
 .footer-p{
-	color:rgb(255, 255, 255);
-	font-size: 45px;
-	position:relative;
+    color:rgb(255, 255, 255);
+    font-size: 45px;
+    position:relative;
 
-	bottom: -40px;
-	text-align: center;
+    bottom: -40px;
+    text-align: center;
 
-	font-family: kevins,cursive;
+    font-family: kevins,cursive;
 
 }
 .footer-right{
@@ -133,65 +134,71 @@ body,html{
     text-align: center;
 }
 .panel{
-	border:0px solid grey;
+    border:0px solid grey;
 }
 .upTop .top-btn{
-	/*width: 40px;*/
-	/*height:50px;*/
-	position:fixed;
-	bottom:150px;
-	/*background: red;*/
-	left:94%;
-	/*margin-right: 100px;*/
+    /*width: 40px;*/
+    /*height:50px;*/
+    position:fixed;
+    bottom:150px;
+    /*background: red;*/
+    left:92%;
+    /*margin-right: 100px;*/
 }
 .upTop .top-btn:hover{
-	background: rgb(227, 221, 221);
+    background: rgb(227, 221, 221);
 }
 #inputName3{
-	padding:9px 9px 9px 48px;background:url(./images/user_16.ico) 10px
-	no-repeat }
+    padding:9px 9px 9px 48px;background:url(./images/user_16.ico) 10px
+    no-repeat }
 #inputPassword3,#inputPasswordRepeat3{
-	padding:9px 9px 9px 48px;background:url(./images/lock_16.ico) 12px 10px
-	no-repeat}
+    padding:9px 9px 9px 48px;background:url(./images/lock_16.ico) 12px 10px
+    no-repeat}
 #inputEmail3{
-	padding:9px 9px 9px 48px;background:url(./images/email_16.ico) 10px
-	no-repeat}
+    padding:9px 9px 9px 48px;background:url(./images/email_16.ico) 10px
+    no-repeat}
 .login_ico input{
-	float:left;border:none;background:none;height:40px;line-height:30px;width:100%;
-	text-indent:32px;}
+    float:left;border:none;background:none;height:40px;line-height:30px;width:100%;
+    text-indent:32px;}
 .note{
-	color: green;
+    color: green;
 }
 .alert{
-	padding: 1px;
+    padding: 1px;
 }
 .img-circle{
-	max-width:45px;
-	max-height: 45px;
+    max-width:45px;
+    max-height: 45px;
 }
 .dropdown-menu{
-	font-size: 15px;
-	border-radius: 10px;
+    font-size: 15px;
+    border-radius: 10px;
 }
-
+.article-div img{
+    display:block;
+    width:100%;
+}
+.article-div .article-func-img{
+    display:none;
+}
 .footer-p a:link, .test a:link {
-	color: rgb(3, 3, 3); text-decoration: none
+    color: rgb(3, 3, 3); text-decoration: none
 }
 .footer-p , .test a:visited {
-	color: rgb(45, 45, 45); text-decoration: none
+    color: rgb(45, 45, 45); text-decoration: none
 }
 .footer-p a:hover, .test a:hover {
-	color: rgb(31, 208, 219); text-decoration: none
+    color: rgb(31, 208, 219); text-decoration: none
 }
 
 .head:visited{
-	color: rgb(9, 219, 232); text-decoration: none
+    color: rgb(9, 219, 232); text-decoration: none
 }
 .container{
     min-height:500px;
 }
 .comments{
-	font-size:14px;
+    font-size:14px;
     line-height:24px;
     margin:10px 0;
     padding:20px;
@@ -222,171 +229,221 @@ body,html{
 <script type="text/javascript">
 
 
-	function noteName(){
-		document.getElementById("noteNameS").hidden = "";
-		document.getElementById("noteName").innerHTML="请输入用户名";
-	}
-	function checkName(){
-		var name = document.getElementById("inputName3").value;
-		if(name == '' || name == undefined){
-			document.getElementById("noteName").style.color = "red";
-			document.getElementById("noteNameS").hidden = "";
-			document.getElementById("noteName").innerHTML="用户名不能为空";
-			document.getElementById("icon-name").innerHTML="";
-		}else if(name.length < 5 || name.length > 16){
-			document.getElementById("noteName").style.color = "red";
-			document.getElementById("noteNameS").hidden = "";
-			document.getElementById("noteName").innerHTML="用户名长度不符(5-16)";
-			document.getElementById("icon-name").innerHTML="";
-		}else{
-			document.getElementById("noteNameS").hidden = "hidden";
+function noteName(){
+    document.getElementById("noteNameS").hidden = "";
+    document.getElementById("noteName").innerHTML="请输入用户名";
+}
+function checkName(){
+    var name = document.getElementById("inputName3").value;
+    if(name == '' || name == undefined){
+        document.getElementById("noteName").style.color = "red";
+        document.getElementById("noteNameS").hidden = "";
+        document.getElementById("noteName").innerHTML="用户名不能为空";
+        document.getElementById("icon-name").innerHTML="";
+    }else if(name.length < 5 || name.length > 16){
+        document.getElementById("noteName").style.color = "red";
+        document.getElementById("noteNameS").hidden = "";
+        document.getElementById("noteName").innerHTML="用户名长度不符(5-16)";
+        document.getElementById("icon-name").innerHTML="";
+    }else{
+        request = createRequest();
+        if(request == null){
+            alert("该浏览器不支持Ajax技术!");
+        }else{
+            var url = "/checkName/"+name;
+            request.onreadystatechange = showUsernameStatus;
+            request.open("GET",url,true);
+            request.send(null);
+        }
+    }
+}
+function checkVerify(){
+    var verify = document.getElementById("inputVerify3").value;
+    request = createRequest();
+    if(request == null){
+         alert("该浏览器不支持Ajax技术！");
+    }else{
+        var url = "/checkVerify/"+verify;
+        request.onreadystatechange = showVerifyStatus;
+        request.open("GET",url,true);
+        request.send(null);
+    }
+}
+function showVerifyStatus(){{
+    if(request.readyState == 4){
+        if(request.status == 200){
+            if(request.responseText == "okay"){    
+                document.getElementById("noteVerifys").hidden = "hidden";
+                document.getElementById("noteVerify").innerHTML = "";
+                document.getElementById("icon-verify").innerHTML="<span class='glyphicon glyphicon-ok form-control-feedback' aria-hidden='true'></span>";
+            }else{
+                document.getElementById("noteVerify").style.color = "red";
+                document.getElementById("noteVerifys").hidden = "";
+                document.getElementById("noteVerify").innerHTML="验证码不正确";
+                document.getElementById("icon-verify").innerHTML="";
+            }
 
-			document.getElementById("icon-name").innerHTML="<span class='glyphicon glyphicon-ok form-control-feedback' aria-hidden='true'></span>";
-		}
-	}
-	function notePassword(){
-		document.getElementById("notePasswordS").hidden = "";
-		document.getElementById("notePassword").innerHTML="请输入密码";
-	}
-	function checkPassword(){
-		var name = document.getElementById("inputPassword3").value;
-		if(name == '' || name == undefined){
-			document.getElementById("notePassword").style.color = "red";
-			document.getElementById("notePasswordS").hidden = "";
-			document.getElementById("notePassword").innerHTML="密码不能为空";
-			document.getElementById("icon").innerHTML="";
-		}else if(name.length < 6 || name.length > 16){
-			document.getElementById("notePassword").style.color = "red";
-			document.getElementById("notePasswordS").hidden = "";
-			document.getElementById("notePassword").innerHTML="密码长度不符(6-16)";
-			document.getElementById("icon-password").innerHTML="";
-		}else{
-			document.getElementById("notePasswordS").hidden = "hidden";
+        }
+    }
+}}
+function showUsernameStatus(){
+    if(request.readyState == 4){
+        if(request.status == 200){
+            if(request.responseText == "okay"){    
+                document.getElementById("noteNameS").hidden = "hidden";
+                document.getElementById("icon-name").innerHTML="<span class='glyphicon glyphicon-ok form-control-feedback' aria-hidden='true'></span>";
+            }else{
+                document.getElementById("noteName").style.color = "red";
+                document.getElementById("noteNameS").hidden = "";
+                document.getElementById("noteName").innerHTML="用户名被占用";
+                document.getElementById("icon-name").innerHTML="";
+            }
+        }
+    }
+}
+function notePassword(){
+    document.getElementById("notePasswordS").hidden = "";
+    document.getElementById("notePassword").innerHTML="请输入密码";
+}
+function checkPassword(){
+    var name = document.getElementById("inputPassword3").value;
+    if(name == '' || name == undefined){
+        document.getElementById("notePassword").style.color = "red";
+        document.getElementById("notePasswordS").hidden = "";
+        document.getElementById("notePassword").innerHTML="密码不能为空";
+        document.getElementById("icon").innerHTML="";
+    }else if(name.length < 6 || name.length > 16){
+        document.getElementById("notePassword").style.color = "red";
+        document.getElementById("notePasswordS").hidden = "";
+        document.getElementById("notePassword").innerHTML="密码长度不符(6-16)";
+        document.getElementById("icon-password").innerHTML="";
+    }else{
+        document.getElementById("notePasswordS").hidden = "hidden";
 
-			document.getElementById("icon-password").innerHTML="<span class='glyphicon glyphicon-ok form-control-feedback' aria-hidden='true'></span>";
-		}
-	}
+        document.getElementById("icon-password").innerHTML="<span class='glyphicon glyphicon-ok form-control-feedback' aria-hidden='true'></span>";
+    }
+}
 
-	function noteReap(){
-		document.getElementById("notePasswordRepeatS").hidden = "";
-		document.getElementById("notePasswordRepeat").innerHTML="请再次输入密码";
-	}
-	function checkPasswordAgain(){
-		var name1 = document.getElementById("inputPasswordRepeat3").value;
-		var name2 = document.getElementById("inputPassword3").value;
-		if(name1 == '' || name1 == undefined){
-			document.getElementById("notePasswordRepeat").style.color = "red";
-			document.getElementById("notePasswordRepeatS").hidden = "";
-			document.getElementById("notePasswordRepeat").innerHTML="密码不能为空";
-			document.getElementById("icon-passwordRepeat").innerHTML="";
-		}else if(name1 != name2){
-			document.getElementById("notePasswordRepeat").style.color = "red";
-			document.getElementById("notePasswordRepeatS").hidden = "";
-			document.getElementById("notePasswordRepeat").innerHTML="密码不一致";
-			document.getElementById("icon-passwordRepeat").innerHTML="";
-		}else{
-			document.getElementById("notePasswordRepeatS").hidden = "hidden";
+function noteReap(){
+    document.getElementById("notePasswordRepeatS").hidden = "";
+    document.getElementById("notePasswordRepeat").innerHTML="请再次输入密码";
+}
+function checkPasswordAgain(){
+    var name1 = document.getElementById("inputPasswordRepeat3").value;
+    var name2 = document.getElementById("inputPassword3").value;
+    if(name1 == '' || name1 == undefined){
+        document.getElementById("notePasswordRepeat").style.color = "red";
+        document.getElementById("notePasswordRepeatS").hidden = "";
+        document.getElementById("notePasswordRepeat").innerHTML="密码不能为空";
+        document.getElementById("icon-passwordRepeat").innerHTML="";
+    }else if(name1 != name2){
+        document.getElementById("notePasswordRepeat").style.color = "red";
+        document.getElementById("notePasswordRepeatS").hidden = "";
+        document.getElementById("notePasswordRepeat").innerHTML="密码不一致";
+        document.getElementById("icon-passwordRepeat").innerHTML="";
+    }else{
+        document.getElementById("notePasswordRepeatS").hidden = "hidden";
 
-			document.getElementById("icon-passwordRepeat").innerHTML="<span class='glyphicon glyphicon-ok form-control-feedback' aria-hidden='true'></span>";
-		}
-	}
-	function checkall(){
-		var flag1 = document.getElementById("icon-passwordRepeat").innerHTML;
-		var flag2 = document.getElementById("icon-name").innerHTML;
-		var flag3 = document.getElementById("icon-password").innerHTML;
+        document.getElementById("icon-passwordRepeat").innerHTML="<span class='glyphicon glyphicon-ok form-control-feedback' aria-hidden='true'></span>";
+    }
+}
+function checkall(){
+    var flag1 = document.getElementById("icon-passwordRepeat").innerHTML;
+    var flag2 = document.getElementById("icon-name").innerHTML;
+    var flag3 = document.getElementById("icon-password").innerHTML;
 
-		if(flag1 != "" && flag2 != "" && flag3 != ""){
-			return true;
-		}
-		return false;
-	}
+    if(flag1 != "" && flag2 != "" && flag3 != ""){
+        return true;
+    }
+    return false;
+}
 </script>
 </head>
 <body>
-	<!-- navbar-fixed-top height:30px-->
+<!-- navbar-fixed-top height:30px-->
 <nav class="navbar navbar-default  navbar-inverse " style="">
-	<div class="container-fluid">
-		<!-- Brand and toggle get grouped for better mobile display -->
-		<div class="navbar-header">
-			<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
-				<span class="sr-only">Toggle navigation</span>
-				<span class="icon-bar"></span>
-				<span class="icon-bar"></span>
-				<span class="icon-bar"></span>
-			</button>
-			<a class="navbar-brand head" style="font-family:kevins"href="/">crab</a>
-			<!-- <a class="navbar-brand" href="/"><img src="/images/home_24.ico" alt="Home" /></a> -->
-		</div>
+    <div class="container-fluid">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand head" style="font-family:kevins"href="/">crab</a>
+            <!-- <a class="navbar-brand" href="/"><img src="/images/home_24.ico" alt="Home" /></a> -->
+        </div>
 
-		<!-- Collect the nav links, forms, and other content for toggling -->
-		<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-			<ul class="nav navbar-nav" >
-				<li><a href="/"><span style="">首页</span> <span class="sr-only">(current)</span></a></li>
-				<!-- <li><a href="#"><span style="font-family:kevins">Contact</span></a></li>
-				<li><a href="/links"><span style="font-family:kevins">Link</span></a></li>
-				<li class="dropdown">
-				<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><span style="font-family:kevins">test</span> <span class="caret"></span></a>
-				<ul class="dropdown-menu">
-					<li><a href="/upload">上传</a></li>
-					<li><a href="/archive"><span style="font-family:kevins">Archives</span></a></li>
-					<li><a href="#">Something else here</a></li>
-					<li role="separator" class="divider"></li>
-					<li><a href="#">Separated link</a></li>
-					<li role="separator" class="divider"></li>
-					<li><a href="#">One more separated link</a></li>
-				</ul>
-				</li> -->
-
-			</ul>
-			<ul class="nav navbar-nav navbar-right">
-
-				<% if(user){ %>
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+            <ul class="nav navbar-nav" >
+                <li><a href="/"><span style="">首页</span> <span class="sr-only">(current)</span></a></li>
+                <!-- <li><a href="#"><span style="font-family:kevins">Contact</span></a></li>
+                <li><a href="/links"><span style="font-family:kevins">Link</span></a></li>
+                <li class="dropdown">
+                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><span style="font-family:kevins">test</span> <span class="caret"></span></a>
+                <ul class="dropdown-menu">
+                    <li><a href="/upload">上传</a></li>
                     <li><a href="/archive"><span style="font-family:kevins">Archives</span></a></li>
-					<li><a href="/post"><span style="font-family:kevins">New</span></a></li>
-					<!-- <p class="navbar-text">Welcome</p> -->
+                    <li><a href="#">Something else here</a></li>
+                    <li role="separator" class="divider"></li>
+                    <li><a href="#">Separated link</a></li>
+                    <li role="separator" class="divider"></li>
+                    <li><a href="#">One more separated link</a></li>
+                </ul>
+                </li> -->
 
-					<li class="dropdown">
-					<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><span style="font-family:kevins"><%= user %></span> <span class="caret"></span></a>
-					<ul class="dropdown-menu" role="menu" aria-labelledby="dropdown-Menu2">
-						<li role="presentation"><a a role="menuitem" tabindex="-1" href="/post"><img src="/images/pen_16.ico" alt="" />&emsp;新随笔</a></li>
-						<li role="presentation"><a a role="menuitem" tabindex="-1" href="/u/<%= user%>"><img src="/images/user_black_16.ico" alt="" />&emsp; 我的主页</a></li>
-						<li role="presentation"><a a role="menuitem" tabindex="-1" href="/post"><img src="/images/message_16.ico" alt="" />&emsp;私信</a></li>
-						<li role="presentation"><a a role="menuitem" tabindex="-1" href="/personal"><img src="/images/personal_16.ico" alt="" />&emsp;个人中心</a></li>
+            </ul>
+            <ul class="nav navbar-nav navbar-right">
 
-						<li role="separator" class="divider"></li>
-						<li><a href="/logout"><img src="/images/exit_16.ico" alt="" />&emsp;退出</a></li>
-					</ul>
-					</li>
-					<li><img src="<%= photo%>"  alt="..." class="img-circle"></li>
+                <% if(user){ %>
+                    <li><a href="/archive"><span style="font-family:kevins">Archives</span></a></li>
+                <li><a href="/post"><span style="font-family:kevins">New</span></a></li>
+                <!-- <p class="navbar-text">Welcome</p> -->
 
-				<% } else { %>
-					<li><a href="/reg">注册</a></li>
-					<li><a href="/login">登录</a></li>
-				<% } %>
+                <li class="dropdown">
+                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><span style="font-family:kevins"><%= user %></span> <span class="caret"></span></a>
+                <ul class="dropdown-menu" role="menu" aria-labelledby="dropdown-Menu2">
+                    <li role="presentation"><a a role="menuitem" tabindex="-1" href="/post"><img src="/images/pen_16.ico" alt="" />&emsp;新随笔</a></li>
+                    <li role="presentation"><a a role="menuitem" tabindex="-1" href="/u/<%= user%>"><img src="/images/user_black_16.ico" alt="" />&emsp; 我的主页</a></li>
+                    <li role="presentation"><a a role="menuitem" tabindex="-1" href="#"><img src="/images/message_16.ico" alt="" />&emsp;私信</a></li>
+                    <li role="presentation"><a a role="menuitem" tabindex="-1" href="/personal"><img src="/images/personal_16.ico" alt="" />&emsp;个人中心</a></li>
 
-			</ul>
-			<form action="/search" method="get" class="navbar-form navbar-right" role="search">
-				<div class="form-group">
-					<input type="text" class="form-control" name="keyword" placeholder="Search">
-				</div>
-				<button type="submit" class="btn btn-link"><img src="/images/Search_24.ico" alt="" /></button>
+                    <li role="separator" class="divider"></li>
+                    <li><a href="/logout"><img src="/images/exit_16.ico" alt="" />&emsp;退出</a></li>
+                </ul>
+                </li>
+                <li><img src="<%= photo%>"  alt="..." class="img-circle"></li>
+
+            <% } else { %>
+                    <li><a href="/reg">注册</a></li>
+                <li><a href="/login">登录</a></li>
+            <% } %>
+
+            </ul>
+            <form action="/search" method="get" class="navbar-form navbar-right" role="search">
+                <div class="form-group">
+                    <input type="text" class="form-control" name="keyword" placeholder="Search">
+                </div>
+                <button type="submit" class="btn btn-link"><img src="/images/Search_24.ico" alt="" /></button>
                 <a href="https://github.com/zerocode1337/crab_blog" target="_blank"><img src="/images/github_16.ico" alt="" /></a>
-			</form>
+            </form>
 
 
-		</div><!-- /.navbar-collapse -->
-	</div><!-- /.container-fluid -->
+        </div><!-- /.navbar-collapse -->
+    </div><!-- /.container-fluid -->
 </nav>
 
 <% if(error) { %>
-	<script type="text/javascript">
-		alert("<%= error%>");
-	</script>
-	<!-- <div><%= error %></div> -->
+    <script type="text/javascript">
+alert("<%= error%>");
+</script>
+<!-- <div><%= error %></div> -->
 <% } %>
 <% if(success) {%>
     <div class="alert alert-success alert-dismissible" role="alert" style="text-align:center; margin-left:auto; margin-right:auto;font-size:2em; font-family:kevins; height:50px; width:50%;">
-        <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-        <strong>Success </strong><%= success%>
+    <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+    <strong>Success </strong><%= success%>
     </div>
 <% } %>

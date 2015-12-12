@@ -21,7 +21,7 @@ module.exports = function(app){
 			}
 			res.render('index',{
 				user: req.session.user,
-				title: 'home',
+				title: 'crabx',
 				posts: posts,
 				tags: tags,
 				page: page,
@@ -86,7 +86,28 @@ module.exports = function(app){
 			error: req.flash('error').toString()
 		});
 	});
-
+    app.get('/checkName/:name', function(req,res,next){
+        var tempname = req.params.name;
+        User.get(tempname,function(err,user){
+            if(err){
+                 req.flash("error",err);
+                 res.redirect('/reg');
+            }
+            if(user){
+                 return res.end("denied");
+            }else{
+                return res.end("okay");
+            }
+        });
+    });
+    app.get('/checkVerify/:verify', function(req,res,next){
+         var tempverify = req.params.verify.toUpperCase();
+         if(tempverify == req.session.txt){
+             return res.end("okay");
+         }else{
+              return res.end("denied");
+         }
+    });
 	app.post('/reg', checkNotLogin);
 	app.post('/reg', function(req,res,next){
 		var name = req.body.name;
@@ -206,7 +227,32 @@ module.exports = function(app){
 			error: req.flash('error').toString()
 		});
 	});
+   // app.get('/showImages/:filename' ,function(req,res,next){
+   //     var filename = req.params.filename;
+   //     console.log(filename);
+   //     res.render('showImage', {
+   //         title:'图片',
+   //         user: req.session.user,
+   //         photo:req.session.photo,
+   //         file:filename,
+   //         success: req.flash('success').toString(),
+   //         error: req.flash('error').toString()
+   //     });
+   // });
 
+    app.get('/showImages/:filename' ,function(req,res,next){
+        var filename = req.params.filename;
+        fs.readFile('/home/crab_blog/public/files/photos/'+filename+'.jpg', function(err,file){
+            if(err){
+                req.flash('error',err);
+                return res.redirect('back');
+            }else{
+                res.writeHead(200,{"Content-Type":"image/png"});
+                res.write(file,"binary");
+                res.end();
+            }
+        });
+    });
 	app.get('/test', function(req, res, next) {
 		res.render('test', {
 			title: '图片上传',
