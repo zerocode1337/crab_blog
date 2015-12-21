@@ -21,7 +21,7 @@ module.exports = function(app){
 			}
 			res.render('index',{
 				user: req.session.user,
-				title: 'crabx',
+                title: 'crab-home',
 				posts: posts,
 				tags: tags,
 				page: page,
@@ -64,7 +64,7 @@ module.exports = function(app){
 				return res.redirect('/');
 			}
 			res.render('tag',{
-				title: req.params.tag,
+				title: req.params.tag + ' | crab-home',
 				posts: posts,
 				photo: req.session.photo,
 				user: req.session.user,
@@ -81,7 +81,7 @@ module.exports = function(app){
 		res.render('reg', {
 			user: req.session.user,
 			photo:req.session.photo,
-			title: 'register',
+			title: 'register | crab-home',
 			success: req.flash('success').toString(),
 			error: req.flash('error').toString()
 		});
@@ -163,7 +163,7 @@ module.exports = function(app){
 	app.get('/login', function(req,res,next){
 		res.render('login',{
 			user: req.session.user,
-			title: 'login',
+			title: 'login | crab-home',
 			success: req.flash('success').toString(),
 			error: req.flash('error').toString()
 		});
@@ -222,7 +222,7 @@ module.exports = function(app){
 			user: req.session.user,
 			photo: req.session.photo,
 			typeEditor: req.session.typeEditor,
-			title: '新随笔',
+			title: '新随笔 | crab-home',
 			success: req.flash('success').toString(),
 			error: req.flash('error').toString()
 		});
@@ -310,7 +310,7 @@ module.exports = function(app){
 	app.get('/personal', checkLogin);
 	app.get('/personal', function(req,res,next){
 		res.render('personal', {
-			title: '个人中心',
+			title: '个人中心 | crab-home',
 			user: req.session.user,
 			photo: req.session.photo,
 			typeEditor: req.session.typeEditor,
@@ -379,7 +379,7 @@ module.exports = function(app){
 				return res.redirect('/');
 			}
 			res.render('archive',{
-				title: '归档',
+				title: '归档 | crab-home',
 				posts: posts,
 				photo: req.session.photo,
 				user: req.session.user,
@@ -424,7 +424,7 @@ module.exports = function(app){
 				}
 				console.log(user);
 				res.render('user', {
-					title: req.params.name,
+					title: req.params.name + ' | crab-home',
 					posts: posts,
 					page: page,
 					isFirstPage: (page-1) == 0,
@@ -443,7 +443,7 @@ module.exports = function(app){
 	});
 	app.get('/links', function(req,res,next){
 		res.render('links', {
-			title: 'links',
+            title: 'links | crab-home',
 			user: req.session.user,
 			photo: req.session.photo,
 			success: req.flash('success').toString(),
@@ -457,7 +457,7 @@ module.exports = function(app){
 				return res.redirect('/');
 			}
 			res.render('article',{
-				title: post.title,
+				title: post.title + ' | crab-home',
 				post: post,
 				user: req.session.user,
 				photo: req.session.photo,
@@ -466,6 +466,29 @@ module.exports = function(app){
 			});
 		});
 	});
+    app.post('/guest_comment', function(req,res,next){
+        /*var date = new Date(),
+			time = date.getFullYear() + '-' + (date.getMonth() + 1) + '-' + date.getDate() + " " + date.getHours() + ":" + (date.getMinutes() < 10 ? '0' + date.getMinutes(): date.getMinutes()) + ":" + (date.getSeconds()<10?'0'+date.getSeconds(): date.getSeconds());
+
+		var comment = {
+			name: req.body.name_guest,
+			time: time,
+            email:req.body.email_guest,
+			content: req.body.content_guest
+		};
+		var newComment = new Comment(req.params.name,req.params.day,req.params.title,comment);
+		newComment.save(function(err){
+			if(err){
+				req.flash('error',err);
+				return res.redirect('back');
+			}
+			req.flash('success','留言成功！');
+			res.redirect('back');
+		});*/
+
+        req.flash('error',"游客留言功能未完善！");
+        return res.redirect('back');
+    });
 	app.post('/u/:name/:day/:title', function(req,res){
 		var date = new Date(),
 			time = date.getFullYear() + '-' + (date.getMonth() + 1) + '-' + date.getDate() + " " + date.getHours() + ":" + (date.getMinutes() < 10 ? '0' + date.getMinutes(): date.getMinutes()) + ":" + (date.getSeconds()<10?'0'+date.getSeconds(): date.getSeconds());
@@ -530,7 +553,7 @@ module.exports = function(app){
 				return res.redirect('back');
 			}
 			res.render('edit',{
-				title: '编辑',
+				title: '编辑 | crab-home',
 				post: post,
 				user: req.session.user,
 				photo: req.session.photo,

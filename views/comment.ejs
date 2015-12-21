@@ -10,17 +10,17 @@
 
 <% post.comments.forEach(function (comment, index) { %>
     <div class="comments">
-        <a href="#">回复</a>
-        <% if(user == comment.name || user == post.name) { %>
+    <a href="#">回复</a>
+    <% if(user == comment.name || user == post.name) { %>
         <a href="/removecomment/<%= post.name%>/<%= post.time.day%>/<%= post._id%>/<%= comment.time%>/<%= comment.name%>">删除</a>
-        <% } %>
-        <p style="color:rgb(100, 103, 102)"><img src="<%= photo%>" alt="" style="height:20px; float:left"/>&nbsp; #<%= index+1%>楼
-        <span class="info"> 回复于 <%= comment.time %></span>&nbsp;
-        <a href="/u/<%= comment.name %>"><%= comment.name %></a>&nbsp;
-        <abbr title="联系我"><img src="/images/emails_16.ico" alt="" /></abbr></p>
+<% } %>
+    <p style="color:rgb(100, 103, 102)"><img src="/images/photo.jpg" alt="" style="height:20px; float:left"/>&nbsp; #<%= index+1%>楼
+    <span class="info"> 回复于 <%= comment.time %></span>&nbsp;
+    <%= comment.name %>&nbsp;
+    <abbr title="联系我"><img src="/images/emails_16.ico" alt="" /></abbr></p>
 
-        <p><strong><%- comment.content %></strong></p>
-    </div>
+    <p><strong><%- comment.content %></strong></p>
+</div>
 <% }) %>
 <br>
 <div class="">
@@ -32,39 +32,72 @@
 <br>
 <form class="form-horizontal" method="post">
     <% if (user) { %>
-  <div class="form-group">
-     <div class="col-sm-6">
-          <strong>昵称:</strong><input type="text" class="form-control" id="name3" name="name" placeholder="<%= user%>" value="<%= user%>"readonly /><br/>
-      </div>
+        <div class="form-group">
+        <div class="col-sm-6">
+            <strong>昵称:</strong><input type="text" class="form-control" id="name3" name="name" placeholder="<%= user%>" value="<%= user%>"readonly /><br/>
+        </div>
     </div>
-  <div class="form-group">
-      <div class="col-sm-12">
-         <strong>评论内容:</strong><textarea class="form-control text3" name="content" rows="5"></textarea>
+    <div class="form-group">
+        <div class="col-sm-12">
+            <strong>评论内容:</strong><textarea class="form-control text3" name="content" rows="5"></textarea>
+        </div>
     </div>
-  </div>
-  <div class="form-group">
-      <div class="col-sm-12">
-        <button type="submit" class="btn btn-default btn-primary">提交评论</button>
+    <div class="form-group">
+        <div class="col-sm-12">
+            <button type="submit" class="btn btn-default btn-primary">提交评论</button>
+        </div>
     </div>
-  </div>
-  <% } else { %>
-      <p>
-          <strong>注册用户登录后才能发表评论，请 <a href="/login">登录</a> 或 <a href="/reg">注册</a>，访问网站
-              <a href="/">首页</a>。</strong>
-      </p>
-      <% } %>
+<% } else { %>
+        <p>
+    以 <strong>游客</strong> 身份评论:
+    <button type="button" class="btn btn-primary" data-toggle="modal" data-target=".bs-example-modal-lg">点我留言</button>
+    </p>
+    <p>
+    <strong>注册用户可以登录后发表评论，请 <a href="/login">登录</a> 或 <a href="/reg">注册</a>，访问网站
+        <a href="/">首页</a>。</strong>
+    </p>
+<% } %>
 
 </form>
 <!-- <form method="post">
     <% if (user) { %>
-        姓名：<input type="text" name="name" value="<%= user.name %>" /><br />
+   姓名：<input type="text" name="name" value="<%= user.name %>" /><br />
         邮箱：<input type="text"  name="email" value="<%= user.email %>" /><br />
         网址：<input type="text" name="website" value="/u/<%= user.name %>" /><br />
         <% } else { %>
-            姓名：<input type="text"  name="name" /><br />
+   姓名：<input type="text"  name="name" /><br />
             邮箱：<input type="text"  name="email" /><br />
             网址：<input type="text"  name="website" value="http://" /><br />
             <% } %>
             <textarea name="content"  rows="5" cols="50"></textarea><br />
             <button type="submit" class="btn btn-default btn-primary">留言</button>
 </form> -->
+
+<div class="modal fade bs-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal=header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title" id="exampleModalLabel">游客留言板</h4>
+            </div>
+            <div class="modal-body">
+                <form method="post" action="/guest_comment">
+                    <div class="form-group">
+                        <strong>昵称:</strong><input type="text" class="form-control" id="name3" name="name_guest" required="required"/><br/>
+                    </div>
+                    <div class="form-group">
+                        <strong>邮箱:</strong><input type="email" class="form-control" id="email" name="email_guest" required="required"/><br/>
+                    </div>
+                    <div class="form-group">
+                            <strong>评论内容:</strong><textarea class="form-control text3" name="content_guest" rows="5" required="required"></textarea>
+                    </div>
+                    <div class="form-group">
+                            <button type="submit" class="btn btn-default btn-primary">提交评论</button>
+                    </div>
+
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
